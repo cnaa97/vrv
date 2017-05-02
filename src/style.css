@@ -1,0 +1,218 @@
+@charset "utf-8";
+
+* {
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+
+/**************************
+    layout
+**************************/
+
+.Aligner { display: flex; align-items: center; justify-content: center; }
+.Aligner-item { max-width: 50%; }
+.Aligner-item-top { align-self: flex-start; }
+.Aligner-item-bottom { align-self: flex-end; }
+
+
+/**************************
+    utils
+**************************/
+
+.noselect { -webkit-touch-callout: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+
+
+/**************************
+    icons
+**************************/
+
+.icon {
+    cursor: pointer;
+    display: inline-block;
+}
+.icon.icon-close{
+    background: url(icon-close.svg) no-repeat;
+    background-size: 40px 40px;
+    width: 50px;
+    height: 40px;
+    margin-top: 9px;
+}
+.icon.icon-menu{
+    background: url(icon-menu.svg) no-repeat;
+    background-size: 60px 60px;
+    width: 60px;
+    height: 60px;
+    opacity: .8;
+}
+.icon.icon-photos{
+    background: url(icon-photos.svg) no-repeat;
+    background-size: 60px 60px;
+    width: 60px;
+    height: 60px;
+    opacity: .8;
+}
+
+.icon.icon-menu:hover,
+.icon.icon-photos:hover{
+    opacity: 1;
+}
+
+.icon.icon-close:hover {
+    opacity: .8;
+}
+
+.icon-menu-wrapper{
+    position: absolute;
+    z-index: 10000;
+    top: 60px;
+    right: 50px;
+}
+
+.icon-photos-wrapper{
+    position: absolute;
+    z-index: 10000;
+    top: 60px;
+    right: 130px;
+}
+
+
+/**************************
+    navigation
+**************************/
+
+.nav{
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,.7);
+    color: #fff;
+}
+.nav > div { color: inherit; position: inherit; }
+.nav .top-left { top: 60px; left: 50px; }
+.nav .top-right { top: 60px; right: 50px; }
+.nav .bottom-left { bottom: 60px; left: 50px; }
+.nav .bottom-right { bottom: 60px; right: 50px; }
+.nav .center-center{ }
+
+
+/**************************
+    contents
+**************************/
+
+.main-logo-type {
+    font-size: 18px;
+    margin-bottom: 16px;
+    background: #000;
+    padding: 8px 10px;
+    display: inline-flex;
+}
+
+.main-desc{
+    line-height: 1.5em;
+    font-weight: 100;
+    opacity: .9;
+    border-left: 1px solid rgba(255,255,255,.9);
+    padding-left: 16px;
+}
+
+.center-btn {
+    cursor: pointer;
+    color: inherit;
+    font-size: 36px;
+    border-bottom: 4px solid #fff;
+    padding-bottom: 5px;
+    margin-top: -10px;
+}
+.center-btn:hover{
+    color: #44BFFE;
+    border-bottom: 4px solid #44BFFE;
+}
+
+.menu-list-wrapper {}
+.menu-list-wrapper ul {}
+.menu-list-wrapper ul li {
+    line-height: 1.8em;
+    font-size: 20px;
+}
+.menu-list-wrapper ul li a { text-decoration: underline; }
+.menu-list-wrapper ul li a:hover{ color: #44BFFE; }
+
+.sub-desc{
+    color: #ABABAB;
+    margin-top: 24px;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+/**************************
+    temp style
+**************************/
+
+#inputWrap{
+    position: absolute;
+    z-index: 9999;
+    left: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 47px;
+    border-color: #666;
+}
+
+
+/**************************************/
+/**************************************/
+/**************************************/
+/**************************************/
+
+/**************************
+    Media query
+**************************/
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px) and (max-device-width : 480px) {
+    .nav .top-left { top: 24px; left: 20px; }
+    .nav .top-right { top: 24px; right: 20px; }
+    .nav .bottom-left { bottom: 30px; left: 20px; }
+    .nav .bottom-right { bottom: 30px; right: 20px; }
+
+    .center-btn{font-size: 26px;}
+
+    .icon-menu-wrapper{ top: 24px; right: 20px; }
+    .icon-photos-wrapper{ top: 24px; right: 88px; }
+
+    .icon.icon-menu{background-size: 50px 50px; width: 50px; height: 50px;}
+    .icon.icon-photos{background-size: 50px 50px; width: 50px; height: 50px;}
+
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+    /* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+    /* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    /* Styles */
+}

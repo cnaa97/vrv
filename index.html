@@ -4,91 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>VRV :: Virtual Reality Experience with Panorama Photo</title>
-    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>-->
-    <script src="js/aframe.js" charset="utf-8"></script>
-    <style>
-        #inputWrap{
-            position: absolute;
-            z-index: 9999;
-            left: 20px;
-            bottom: 20px;
-            width: 60px;
-            height: 47px;
-            border-color: #666;
-        }
-
-        #fileInputLabel{
-            width: inherit;
-            height: inherit;
-            background: rgba(0,0,0,.35);
-            color: #fff;
-            font-weight: 300;
-            text-align: center;
-            display: table-cell;
-            vertical-align: middle;
-            font-family: sans-serif;
-            padding-top: 3px;
-        }
-    </style>
-    <script>
-        window.onload = function () {
-
-            const sceneEl = document.querySelector('a-scene'),
-                panoImage = sceneEl.querySelector('#panoImage'),
-                inputFile = document.getElementById('fileInput'),
-                reader = new FileReader(),
-                log = document.querySelector("textarea");
-
-
-            inputFile.addEventListener("change", function() {
-                const input = this;
-
-                if(!input.files || !/image/.test(input.files[0].type)){
-                    alert('이미지 파일이 아닙니다');
-                    return
-                }
-
-                reader.readAsDataURL(input.files[0]);
-
-                reader.onload = function (e) {
-                    panoImage.setAttribute('src', e.target.result);
-
-//                        logMessage(panoImage);
-//                        logMessage(document.getElementById('imgDisplay'));
-//                            document.getElementById('imgDisplay').setAttribute('src', e.target.result);
-//                            $('a-sky')[0].setAttribute('src', e.target.result);
-//                            logMessage($('a-sky')[0]);
-
-                    };
-                    reader.onabort = function () {
-                        logMessage('abort 이벤트의 핸들러. 이 이벤트는 읽기 동작이 중단 될 때마다 발생합니다.');
-                    };
-
-                    reader.onerror = function () {
-                        logMessage('error 이벤트의 핸들러. 이 이벤트는 읽기 동작에 에러가 생길 때마다 발생합니다.');
-                    };
-            });
-
-            document.addEventListener("message", function(event) {
-                logMessage(event.data);
-            }, false);
-
-            function logMessage(message) {
-                log.append((new Date()) + " " + message + "\n");
-            }
-        };
-    </script>
+    <title>Virtual Reality Space Experience with Panorama Photo</title>
+    <link rel="stylesheet" href="src/reset.css">
+    <link rel="stylesheet" href="src/style.css">
+    <script src="src/jquery-3.2.1.min.js"></script>
+    <script src="src/aframe.js" charset="utf-8"></script>
+    <script src="src/index.js"></script>
 </head>
+
 <body>
+    <div id="mainIconWrapper">
+        <div id="iconMenu" class="icon-menu-wrapper">
+            <div class="icon icon-menu"></div>
+        </div>
+        <div class="icon-photos-wrapper">
+            <label class="icon icon-photos" id="fileInputLabel" for="fileInput"></label>
+            <input type="file" class="fileInput" id="fileInput" accept="image/*" style="display: none" />
+        </div>
+    </div>
+    <div id="navWrapper" class="nav Aligner" style="display: none">
+        <div class="top-left">
+            <div class="main-logo-type noselect"><a href="https://github.com/cnaa97/vrv/" target="_blank">VR Space Experience</a></div>
+            <p class="main-desc noselect">모바일 웹 혹은 데스크톱에서 <br> 파노라마 이미지 파일을 선택해보세요. <br> VR 을 경험할 수 있습니다</p>
+        </div>
+        <div id="iconClose" class="top-right">
+            <div class="icon icon-close"></div>
+        </div>
+        <div class="bottom-left menu-list-wrapper noselect">
+            <ul>
+                <li><a href="https://github.com/cnaa97/vrv/issues/1" target="_blank">버그 리포트</a></li>
+                <li><a href="http://cnaa97.github.io/" target="_blank">개발자 블로그</a></li>
+            </ul>
+            <p class="sub-desc noselect">Developed by Junho Park</p>
+        </div>
+        <div class="center-center Aligner">
+            <div class="">
+                <label class="center-btn noselect Aligner" for="inputFileInMenu">파노라마 이미지 선택하기</label>
+                <input type="file" class="fileInput" id="inputFileInMenu" accept="image/*" style="display: none" />
+            </div>
+        </div>
+    </div>
+
     <div id="inputWrap">
-        <label id="fileInputLabel" for="fileInput">이미지<br/>바꾸기</label>
-        <input type="file" id="fileInput" accept="image/*" style="display: none" />
         <!--<img id="imgDisplay" width="100" height="100"/>-->
         <!--<textarea name="text" id="" cols="30" rows="10"></textarea>-->
     </div>
+
+    <!--AFRAME ELEMENT-->
     <a-scene>
         <a-sky id="panoImage" src="https://raw.githubusercontent.com/aframevr/aframe/master/examples/boilerplate/panorama/puydesancy.jpg" rotation="0 -130 0"></a-sky>
     </a-scene>
+    <!--AFRAME ELEMENT-->
 </body>
 </html>
