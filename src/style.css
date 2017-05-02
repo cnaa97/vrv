@@ -98,7 +98,11 @@
 .nav .top-right { top: 60px; right: 50px; }
 .nav .bottom-left { bottom: 60px; left: 50px; }
 .nav .bottom-right { bottom: 60px; right: 50px; }
-.nav .center-center{ }
+.nav .center-center{
+    top: 46%;
+    width: 100%;
+    text-align: center;
+}
 
 
 /**************************
