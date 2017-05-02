@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <button id="btn1">Send post message from web</button>
+    <button id="btn2">btn2</button>
+    <div>Post message log</div>
+    <textarea style="height: 200px; width: 100%;" readonly></textarea>
+
+
+    <input type="file" id="fileInput" accept="image/*" />
+    <img id="panoImage" src="" />
+
+    <script>
+        var log = document.querySelector("textarea"),
+            panoImage = document.getElementById('panoImage'),
+            inputFile = document.getElementById('fileInput');
+
+
+        inputFile.addEventListener("change", function() {
+            const input = this;
+
+            if (input.files && input.files[0]) {
+                logMessage(input.files[0]);
+                const reader = new FileReader();
+                reader.readAsDataURL(input.files[0]);
+                reader.onload = function (e) {
+                    panoImage.setAttribute('src', e.target.result);
+                };
+            }
+        });
+
+
+
+        document.getElementById("btn2").addEventListener("click", function () {
+            logMessage(inputFile);
+        });
+
+
+
+        document.getElementById("btn1").onclick = function () {
+            console.log("Send post message");
+
+            logMessage("Sending post message from web..");
+            window.postMessage("Post message from web", "*");
+        };
+
+        document.addEventListener("message", function (event) {
+            console.log("Received post message", event);
+
+            logMessage(event.data);
+        }, false);
+
+        function logMessage(message) {
+//            log.append((new Date()) + " " + message + "\n");
+            log.append(message + "\n");
+//            panoImage.setAttribute('src', message);
+        }
+
+    </script>
+
+</body>
+</html>

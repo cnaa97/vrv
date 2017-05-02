@@ -1,7 +1,7 @@
 #################
 ## webstorm
 #################
-/.idea/
+/app/.idea/
 
 #################
 ## OSX
@@ -16,6 +16,6 @@
 #################
 ## node
 #################
-/node_modules/
-npm-debug.log
+/app/node_modules/
+/app/npm-debug.log
 /tmp/
