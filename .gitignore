@@ -21,3 +21,7 @@
 /app/npm-debug.log
 /tmp/
 
+#################
+## ios build
+#################
+/app/ios/build/

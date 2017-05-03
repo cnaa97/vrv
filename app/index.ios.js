@@ -52,6 +52,8 @@ export default class vrv extends Component {
         }
     }
 
+    //source={require('../index.html')}
+
     render() {
         return (
             <View style={{ flex: 1 }}>
@@ -63,7 +65,7 @@ export default class vrv extends Component {
                 />
                 <Text>{this.state.message}</Text>
                 <WebView ref={webView => { this.webView = webView; }}
-                         source={require('./index.html')}
+                         source={{uri: 'https://cnaa97.github.io/vrv'}}
                          scrollEnabled={true}
                          bounces={false}
                          onMessage={this.onMessage.bind(this)}
